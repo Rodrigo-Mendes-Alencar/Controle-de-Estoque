@@ -1,5 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Controle_de_Estoque.Models;
+﻿using Controle_de_Estoque.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace Controle_de_Estoque.Data
 {
@@ -11,6 +12,9 @@ namespace Controle_de_Estoque.Data
         }
             public DbSet<Produto> Produtos { get; set; }
             public DbSet<Categoria> Categorias { get; set; }
+
+
+        
     }
         
 }

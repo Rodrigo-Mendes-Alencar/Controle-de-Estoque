@@ -1,4 +1,7 @@
 
+using Microsoft.EntityFrameworkCore;
+using Controle_de_Estoque.Data;
+
 namespace Controle_de_Estoque
 {
     public class Program
@@ -11,8 +14,16 @@ namespace Controle_de_Estoque
 
             builder.Services.AddControllers();
 
+            //Dbcontext ----------
+            builder.Services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            //-------
             //configure swagger
             builder.Services.AddSwaggerGen();
+            builder.Services.AddEndpointsApiExplorer();
+
+            //---------------
 
             var app = builder.Build();
             
